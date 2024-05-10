@@ -6998,7 +6998,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.1
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7008,7 +7008,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &566600919
 CapsuleCollider2D:
@@ -7092,6 +7092,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gInput: {fileID: 566600920}
   speed: 5
+  jumpForce: 10
+  rayLength: 0.1
+  leftPoint: {fileID: 310705912}
+  rightPoint: {fileID: 2117406362}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &745437851
 GameObject:
   m_ObjectHideFlags: 0
