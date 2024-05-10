@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] private GatherInput gInput;
+    private Animator animator;
+
     [Header("Movement")]
     [SerializeField] private float speed;
     private Rigidbody2D rb;
@@ -23,11 +25,13 @@ public class PlayerControls : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         Flip();
+        SetAnimatorValues();
     }
 
     void FixedUpdate()
@@ -72,5 +76,11 @@ public class PlayerControls : MonoBehaviour
         RaycastHit2D hitRight = Physics2D.Raycast(rightPoint.position, Vector2.down, rayLength, groundLayer);
 
         isGrounded = hitLeft || hitRight;
+    }
+
+    private void SetAnimatorValues()
+    {
+        //animator.SetFloat("speedX", Mathf.Abs(gInput.valueX));
+        animator.SetFloat("speedX", Mathf.Abs(rb.velocity.x));
     }
 }
