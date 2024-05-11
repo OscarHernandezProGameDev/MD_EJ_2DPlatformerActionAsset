@@ -81,6 +81,8 @@ public class PlayerControls : MonoBehaviour
     private void SetAnimatorValues()
     {
         //animator.SetFloat("speedX", Mathf.Abs(gInput.valueX));
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("speedY", rb.velocity.y);
         animator.SetFloat("speedX", Mathf.Abs(rb.velocity.x));
     }
 }
