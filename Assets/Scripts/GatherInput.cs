@@ -46,6 +46,14 @@ public class GatherInput : MonoBehaviour
     {
         valueX = moveAction.ReadValue<float>();
         Debug.Log($"ValueX is {valueX}");
+
+        // Por código que no se mueva lentamente
+        if (valueX > 0.01f)
+            valueX = 1f;
+        else if (valueX < 0 && valueX >= -1)
+            valueX = -1f;
+        else
+            valueX = 0f;
     }
 
     private void JumpExample(InputAction.CallbackContext context)
