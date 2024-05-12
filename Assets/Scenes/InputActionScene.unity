@@ -7064,6 +7064,7 @@ MonoBehaviour:
   valueX: 0
   tryToJump: 0
   tryToAttack: 0
+  tryToSpecialAttack: 0
 --- !u!114 &566600921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7079,6 +7080,7 @@ MonoBehaviour:
   valueX: 0
   tryToJump: 0
   tryToAttack: 0
+  tryToSpecialAttack: 0
 --- !u!114 &566600922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7100,6 +7102,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  isGrounded: 0
 --- !u!114 &566600923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7113,6 +7116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gInput: {fileID: 566600920}
+  attackStarted: 0
+  playerControls: {fileID: 566600922}
 --- !u!1 &745437851
 GameObject:
   m_ObjectHideFlags: 0

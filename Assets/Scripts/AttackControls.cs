@@ -7,6 +7,7 @@ public class AttackControls : MonoBehaviour
     [SerializeField] private GatherInput gInput;
     private Animator animator;
     public bool attackStarted;
+    [SerializeField] private PlayerControls playerControls;
 
     private void Awake()
     {
@@ -24,6 +25,16 @@ public class AttackControls : MonoBehaviour
             }
             gInput.tryToAttack = false;
         }
+
+        if (gInput.tryToSpecialAttack)
+        {
+            if (!attackStarted && playerControls.isGrounded)
+            {
+                attackStarted = true;
+                animator.Play("Attack_Special");
+            }
+            gInput.tryToSpecialAttack = false;
+        }
     }
 
     public void Reset()
@@ -33,5 +44,13 @@ public class AttackControls : MonoBehaviour
 
         // call this if you die
         animator.SetBool("Attack", attackStarted);
+    }
+
+    public void SpecialReset()
+    {
+        attackStarted = false;
+        // Como no usamos en este caso las transiciones, lo hacemos a mano.
+        // Lo comentamos porque hemos creado la transición en el Animator
+        //animator.Play("Idle");
     }
 }

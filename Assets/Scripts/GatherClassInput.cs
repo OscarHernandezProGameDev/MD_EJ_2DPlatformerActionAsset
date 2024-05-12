@@ -9,6 +9,7 @@ public class GatherClassInput : MonoBehaviour
     public float valueX;
     public bool tryToJump;
     public bool tryToAttack;
+    public bool tryToSpecialAttack;
 
     void Awake()
     {
@@ -19,8 +20,12 @@ public class GatherClassInput : MonoBehaviour
     {
         myControls.PlayerNormal.Jump.performed += JumpExample;
         myControls.PlayerNormal.Jump.canceled += JumpStopExample;
+
         myControls.PlayerNormal.Attack.performed += AttackExample;
         myControls.PlayerNormal.Attack.canceled += AttackStopExample;
+
+        myControls.PlayerNormal.SpecialAttack.performed += SpecialExample;
+        myControls.PlayerNormal.SpecialAttack.canceled += StopSpecialExample;
 
         myControls.Enable();
     }
@@ -51,12 +56,27 @@ public class GatherClassInput : MonoBehaviour
         tryToAttack = false;
     }
 
+    private void SpecialExample(InputAction.CallbackContext context)
+    {
+        Debug.Log("Special attack is Called");
+        tryToSpecialAttack = true;
+    }
+
+    private void StopSpecialExample(InputAction.CallbackContext context)
+    {
+        tryToSpecialAttack = false;
+    }
+
     void OnDisable()
     {
         myControls.PlayerNormal.Jump.performed -= JumpExample;
         myControls.PlayerNormal.Jump.canceled -= JumpStopExample;
+
         myControls.PlayerNormal.Attack.performed -= AttackExample;
         myControls.PlayerNormal.Attack.canceled -= AttackStopExample;
+
+        myControls.PlayerNormal.SpecialAttack.performed -= SpecialExample;
+        myControls.PlayerNormal.SpecialAttack.canceled -= StopSpecialExample;
 
         myControls.Disable();
     }

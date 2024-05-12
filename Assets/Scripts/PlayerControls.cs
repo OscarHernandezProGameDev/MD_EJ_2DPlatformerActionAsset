@@ -20,7 +20,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private Transform leftPoint;
     [SerializeField] private Transform rightPoint;
     [SerializeField] private LayerMask groundLayer;
-    private bool isGrounded;
+    public bool isGrounded;
 
     void Awake()
     {
